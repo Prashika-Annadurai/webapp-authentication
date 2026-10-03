@@ -1,0 +1,11 @@
+# Gradle
+.gradle/
+build/
+gradle.zip
+
+# IDEs
+.vscode/
+bin/
+
+# Java
+*.class
