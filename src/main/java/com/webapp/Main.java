@@ -4,6 +4,7 @@ import com.sun.net.httpserver.Filter;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import com.webapp.http.RegistrationHandler;
+import com.webapp.http.StaticFileHandler;
 import com.webapp.repository.JdbcUserRepository;
 import com.webapp.repository.UserRepository;
 import com.webapp.service.RegistrationService;
@@ -41,6 +42,9 @@ public class Main {
             @Override
             public String description() { return "CORS Filter"; }
         });
+        
+        // Serve the frontend web pages directly from the Java Server
+        server.createContext("/", new StaticFileHandler("frontend"));
         
         
         server.setExecutor(null);
